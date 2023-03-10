@@ -5,10 +5,11 @@ const Nav = () => {
         <div className="Nav">
             <nav>
                <ul>
-                    <li>Changer les tracklist</li>
+                    <li>Changé les tracklist</li>
                     <li>Changer les dates de tourner</li>
                </ul> 
             </nav>
+            <div> Bonjour</div>
         </div>
     );
 }
