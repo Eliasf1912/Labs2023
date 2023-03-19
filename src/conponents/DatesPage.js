@@ -11,12 +11,13 @@ const Main = () => {
     useEffect( () => {
         let tab = [];
         databaseService.readData("dates", (data) => {
-            for(const date in data){
-                tab.push(data[date])
-                console.log(date.key);
+            for(const key in data){
+                const newdate = {...data[key], id: key}
+                tab.push(newdate)
             }
             setDatesTab(tab)
         })
+
     },[])
 
     const [formObject, setFormObject] = useState({
@@ -35,7 +36,7 @@ const Main = () => {
     }
 
     const addDates = () => {
-        const url = "dates/" + formObject.date;
+        const url = "dates/";
         const data = {
             date: formObject.date,
             pays: formObject.pays,
@@ -54,9 +55,9 @@ const Main = () => {
         setFormObject(newFormOject_);
     }
 
-    const removeDates = (index) => {
-        const newdatesTab = datesTab.filter(date => date.index !== index)
-        setDatesTab(newdatesTab);
+    const removeDates = (id) => {
+        const newdatesTab = datesTab.filter(date => date.id !== id)
+        setDatesTab(newdatesTab);  
     }
 
     return (  
@@ -72,8 +73,8 @@ const Main = () => {
                 <input type="submit" name="submit" value='Ajouter' onClick={addDates}/>               
             </div>
             <div>
-                {datesTab.map((date,index) =>
-                    <div className='date-display' key={date.date}>
+                {datesTab.map((date) =>
+                    <div className='date-display' key={date.id}>
                         <p>{date.date}</p>
                         <p>{date.pays}</p>
                         <p>{date.ville}</p>
@@ -81,7 +82,7 @@ const Main = () => {
                         <p>{date.adresse}</p>
                         <div className='div-button'>
                             <button>modifier</button>
-                            <button onClick={()=>removeDates(index)}>Supprimer</button>
+                            <button onClick={()=>{removeDates(date.id)}}>Supprimer</button>
                         </div>
                     </div>
                 )}
