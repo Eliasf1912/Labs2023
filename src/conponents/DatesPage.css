@@ -77,3 +77,42 @@ input{
     font-size: 15px;
     cursor: pointer;
 }
+
+.hidden{
+    display: none;
+}
+
+.reveal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reveal input[type="text"]{
+    padding: 5px 10px;
+    border: solid 3px black;
+    font-size: 15px;
+}
+
+.reveal input[type="submit"]{
+    padding: 8px 12px;
+    border: solid 3px black;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.reveal input[type="date"]{
+    padding: 5px 10px;
+    border: solid 3px black;
+    font-size: 15px;
+}
+
+.reveal button{
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    border: solid 3px black;
+}

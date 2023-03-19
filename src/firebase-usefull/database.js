@@ -1,4 +1,4 @@
-import { getDatabase, ref, set, onValue, update, push } from "firebase/database";
+import { getDatabase, ref, set, onValue, update, push, remove } from "firebase/database";
 
 const databaseService = {
     // writeData(url, data) {
@@ -10,10 +10,14 @@ const databaseService = {
         const Ref = ref(db, url);
         const newPostRef = push(Ref);
         set(newPostRef, data);
-        // const key = push(Ref).key;
     },
-    removeData(){
-
+    removeData(url){
+        const db = getDatabase();
+        remove(ref(db,url));
+    },
+    updateData(url,data){
+        const db = getDatabase();
+        update(ref(db,url),data);
     },
     readData(url, callback) {
         const db = getDatabase();
