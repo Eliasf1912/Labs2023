@@ -1,16 +1,19 @@
 import Nav from './Nav';
 import './DatesPage.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import _ from '../firebase-usefull/init.js';
 import databaseService from '../firebase-usefull/database.js';
+import authService from '../firebase-usefull/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
     
     const [datesTab, setDatesTab] = useState([]);
+    const navigate = useNavigate();
 
     useEffect( () => {
-        let tab = [];
         databaseService.readData("dates", (data) => {
+            let tab = [];
             for(const key in data){
                 const newdate = {...data[key], id: key}
                 tab.push(newdate)
@@ -112,6 +115,11 @@ const Main = () => {
         }
     }
 
+    const logOut = () => {
+        authService.signOut();
+        navigate("/");
+    }
+
     return (  
         <div className='TournePage'>
             <Nav/>
@@ -122,7 +130,8 @@ const Main = () => {
                 <input type="text" name="salle" value={formObject.salle} onChange={FormChange} placeholder="salle"/>                     
                 <input type="text" name="ville" value={formObject.ville} placeholder='Ville' onChange={FormChange}/>
                 <input type="text" name="adresse" value={formObject.adresse} placeholder='adresse' onChange={FormChange}/>                    
-                <input type="submit" name="submit" value='Ajouter' onClick={() =>{addDates()}}/>               
+                <input type="submit" name="submit" value='Ajouter' onClick={() =>{addDates()}}/>   
+                <button onClick={logOut}>se deconnecter</button>                
             </div>
             <div>
                 {datesTab.map((date) =>

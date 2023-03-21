@@ -15,10 +15,6 @@ const databaseService = {
         const db = getDatabase();
         remove(ref(db,url));
     },
-    updateData(url,data){
-        const db = getDatabase();
-        update(ref(db,url),data);
-    },
     readData(url, callback) {
         const db = getDatabase();
         const itemRef = ref(db, url);

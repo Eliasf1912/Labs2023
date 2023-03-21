@@ -5,9 +5,9 @@ const Nav = () => {
     return ( 
         <div className="Nav">
             <ul>
-                <li>Changer les paramétres du profile</li>
-                <Link to="/Date.js"><li>Modifier la tourner</li></Link>
                 <Link to="/"><li>Acceuil</li></Link>
+                <Link to="/Date.js"><li>Modifier la tourner</li></Link>
+                <Link to="/ParametersUser.js"><li>paramétres</li></Link>
             </ul>
         </div>
     );

@@ -1,0 +1,40 @@
+.ParametersUser{
+    margin-left: 30%;
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 40px;
+    background-color: gray;
+    color: white;
+    height: 100vh;
+}
+
+.input-singup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    gap: 10px;
+}
+
+.input-singup h2{
+    font-size: 40px;
+    text-align: center;
+    color: black;
+}
+
+.input-singup input{
+    padding: 5px 10px;
+    border: solid 3px black;
+    font-size: 15px;
+}
+
+.input-singup input[type="submit"]{
+    padding: 8px 12px;
+    border: solid 3px black;
+    font-size: 15px;
+    cursor: pointer;
+}

@@ -26,6 +26,13 @@ import {
             const auth = getAuth();
             onAuthStateChanged(auth, callback);
         },
+        getUser(){
+            const auth = getAuth();
+            const user = auth.currentUser;
+            if (user !== null) {
+                console.log(user);
+            }
+        },
         updateUserEmail(newEmail) {
             return new Promise(resolve => {
                 const auth = getAuth();
