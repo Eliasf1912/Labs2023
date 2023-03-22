@@ -19,7 +19,7 @@ const databaseService = {
         const db = getDatabase();
         const itemRef = ref(db, url);
         onValue(itemRef, (snapshot) => {
-            console.log("data changed !", snapshot.val());
+            console.log(snapshot.val());
             const data = snapshot.val();
             callback(data);
         });

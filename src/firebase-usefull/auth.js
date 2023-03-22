@@ -29,8 +29,12 @@ import {
         getUser(){
             const auth = getAuth();
             const user = auth.currentUser;
+            let userInfos = {};
             if (user !== null) {
-                console.log(user);
+                userInfos = {
+                    email : user.email,
+                    uid : user.uid
+                }
             }
         },
         updateUserEmail(newEmail) {
@@ -39,6 +43,7 @@ import {
                 updateEmail(auth.currentUser, newEmail).then(result => {
                     // Email updated!
                     resolve({ data: result });
+                    console.log(result);
                 }).catch((error) => {
                     console.log(error);
                     resolve({ error });

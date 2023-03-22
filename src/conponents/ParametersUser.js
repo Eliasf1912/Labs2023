@@ -8,6 +8,8 @@ const ParametersUser = () => {
   const [formObject, setFormObject] = useState({
     email: "",
     password: "",
+    userEmail:"",
+    userPassword : ""
   })
 
   const FormChange = (event) => {
@@ -22,8 +24,30 @@ const ParametersUser = () => {
     console.log("user add!!!")
   }
 
-  const getUser = () => {
-    authService.getUser();
+  const updateEmail = () => {
+    authService.updateUserEmail(formObject.userEmail);
+    alert("Email modifié")
+    let newInfo  = {...formObject};
+    newInfo = {
+      email: "",
+      password: "",
+      userEmail:"",
+      userPassword : ""
+    }
+    setFormObject(newInfo)
+  }
+
+  const updatePassword = () => {
+    authService.updateUserPassword(formObject.userPassword);
+    alert("mot de passe modifié");
+    let newInfo  = {...formObject};
+    newInfo = {
+      email: "",
+      password: "",
+      userEmail:"",
+      userPassword : ""
+    }
+    setFormObject(newInfo)
   }
 
   return (  
@@ -34,7 +58,18 @@ const ParametersUser = () => {
         <input type="email" name="email" value={formObject.email} placeholder="email" onChange={FormChange}/>
         <input type="password" name="password" value={formObject.password} placeholder="password" onChange={FormChange}/>
         <input type="submit" name="submit" value="Ajouter" onClick={addUser}/>
-        <button onClick={getUser}>user</button>
+      </div>
+      <div className="Modify-Usert">
+        <h2>Mettre à jour ses imformations</h2>
+        <h3>Email</h3>
+        <input type="text" name="userEmail" placeholder="nouvelle email" value={formObject.userEmail} onChange={FormChange}/>
+        <button onClick={updateEmail}>Mettre à jour l'email</button>
+        <h3>Password</h3>
+        <input type="password" name="userPassword" placeholder="nouveau mot de passe" value={formObject.userPassword} onChange={FormChange}/>
+        <button onClick={updatePassword}>Mettre à jour le mot de passe</button>
+      </div>
+      <div className="user-Info">
+        <span></span>
       </div>
     </div>  
   );

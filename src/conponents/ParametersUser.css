@@ -38,3 +38,37 @@
     font-size: 15px;
     cursor: pointer;
 }
+
+.Modify-Usert{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    gap: 10px;
+}
+
+.Modify-Usert h2{
+    font-size: 40px;
+    text-align: center;
+    color: black;
+}
+
+.Modify-Usert h3{
+    font-size: 30px;
+    text-align: center;
+    color: black;
+    font-weight: lighter;
+}
+
+.Modify-Usert input{
+    padding: 5px 10px;
+    border: solid 3px black;
+    font-size: 15px;
+}
+
+.Modify-Usert button{
+    padding: 5px 10px;
+    background-color: gray;
+    cursor: pointer;
+}
