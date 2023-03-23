@@ -7,7 +7,6 @@ import authService from "../firebase-usefull/auth";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-
     const [formObject, setFormObject] = useState({
         email: "",
         password: ""

@@ -27,3 +27,9 @@ ul li:visited{
     list-style: none;
     text-decoration: none;
 }
+
+nav button{
+    padding: 10px 15px;
+    font-size: 25px;
+    font-weight: bold
+}

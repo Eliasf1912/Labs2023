@@ -115,11 +115,6 @@ const Main = () => {
         }
     }
 
-    const logOut = () => {
-        authService.signOut();
-        navigate("/");
-    }
-
     return (  
         <div className='TournePage'>
             <Nav/>
@@ -130,8 +125,7 @@ const Main = () => {
                 <input type="text" name="salle" value={formObject.salle} onChange={FormChange} placeholder="salle"/>                     
                 <input type="text" name="ville" value={formObject.ville} placeholder='Ville' onChange={FormChange}/>
                 <input type="text" name="adresse" value={formObject.adresse} placeholder='adresse' onChange={FormChange}/>                    
-                <input type="submit" name="submit" value='Ajouter' onClick={() =>{addDates()}}/>   
-                <button onClick={logOut}>se deconnecter</button>                
+                <input type="submit" name="submit" value='Ajouter' onClick={() =>{addDates()}}/>                
             </div>
             <div>
                 {datesTab.map((date) =>
